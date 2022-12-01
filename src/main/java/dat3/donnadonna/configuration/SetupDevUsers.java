@@ -1,5 +1,6 @@
 package dat3.donnadonna.configuration;
 
+import dat3.donnadonna.entity.Subscription;
 import dat3.security.entity.Role;
 import dat3.security.entity.UserWithRoles;
 import org.springframework.boot.ApplicationArguments;
