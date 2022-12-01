@@ -1,13 +1,12 @@
 package dat3.donnadonna.api;
 
 
+import dat3.donnadonna.dto.CustomerRequest;
 import dat3.donnadonna.dto.CustomerResponse;
 import dat3.donnadonna.entity.Customer;
 import dat3.donnadonna.entity.Subscription;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import dat3.donnadonna.service.CustomerService;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +16,23 @@ import java.util.List;
 @RequestMapping("api/customers")
 public class CustomerController {
 
-@GetMapping
-  public List<CustomerResponse> getCustomers(){
-  List<CustomerResponse> liste = new ArrayList<>();
-  Subscription subscription = new Subscription();
-  liste.add(new CustomerResponse(2,"yo",13,"hal","yo",subscription));
-  return liste;
-}
+  CustomerService customerService;
+
+  public CustomerController(CustomerService customerService) {
+    this.customerService = customerService;
+  }
+
+  @GetMapping
+  public List<CustomerResponse> getCustomers() {
+    List<CustomerResponse> liste = new ArrayList<>();
+    Subscription subscription = new Subscription();
+    liste.add(new CustomerResponse(2, "yo", 13, "hal", "yo", subscription));
+    return liste;
+  }
+
+  @PostMapping
+  public CustomerResponse addCustomer(@RequestBody CustomerRequest body) {
+    return customerService.addCustomer(body);
+  }
 
 }

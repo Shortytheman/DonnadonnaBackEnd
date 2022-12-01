@@ -33,7 +33,7 @@ public CustomerResponse(Customer c){
   this.customerAge = c.getCustomerAge();
   this.customerEmail = c.getCustomerEmail();
   this.customerAllergies = c.getCustomerAllergies();
-  this.subscription = c.getSubscription();
+  //this.subscription = c.getSubscription();
 }
 
 }

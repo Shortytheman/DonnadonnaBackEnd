@@ -20,15 +20,17 @@ public class Customer {
 
   @Id
   int customerId;
-
   String customerName;
   int customerAge;
   String customerEmail;
   String customerAllergies;
+  int subscriptionId;
 
-  @OneToOne(mappedBy = "subscription", cascade = CascadeType.ALL)
-  Subscription subscription;
-
-
+  public Customer(String customerName, int customerAge, String customerEmail, String customerAllergies){
+  this.customerName = customerName;
+  this.customerAge = customerAge;
+  this.customerEmail = customerEmail;
+  this.customerAllergies = customerAllergies;
+  }
 
 }

@@ -1,6 +1,8 @@
 package dat3.donnadonna.configuration;
 
+import dat3.donnadonna.entity.Customer;
 import dat3.donnadonna.entity.Subscription;
+import dat3.donnadonna.repository.CustomerRepository;
 import dat3.security.entity.Role;
 import dat3.security.entity.UserWithRoles;
 import org.springframework.boot.ApplicationArguments;
@@ -13,10 +15,12 @@ public class SetupDevUsers implements ApplicationRunner {
 
     UserWithRolesRepository userWithRolesRepository;
     String passwordUsedByAll;
+    CustomerRepository customerRepository;
 
-    public SetupDevUsers(UserWithRolesRepository userWithRolesRepository) {
+    public SetupDevUsers(UserWithRolesRepository userWithRolesRepository, CustomerRepository customerRepository) {
         this.userWithRolesRepository = userWithRolesRepository;
         passwordUsedByAll = "test12";
+        this.customerRepository = customerRepository;
     }
 
     @Override
@@ -44,5 +48,8 @@ public class SetupDevUsers implements ApplicationRunner {
         userWithRolesRepository.save(user1);
         userWithRolesRepository.save(user2);
         userWithRolesRepository.save(user3);
+
+        Customer customer = new Customer("Smørgen",13,"smørgen@smør.dk","nødder");
+        customerRepository.save(customer);
     }
 }
