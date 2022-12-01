@@ -24,10 +24,7 @@ public class CustomerController {
 
   @GetMapping
   public List<CustomerResponse> getCustomers() {
-    List<CustomerResponse> liste = new ArrayList<>();
-    Subscription subscription = new Subscription();
-    liste.add(new CustomerResponse(2, "yo", 13, "hal", "yo", subscription));
-    return liste;
+    return customerService.getCustomers();
   }
 
   @PostMapping
