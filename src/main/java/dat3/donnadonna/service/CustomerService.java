@@ -27,17 +27,14 @@ public class CustomerService {
     }
     Customer newCustomer = CustomerRequest.getCustomerEntity(customerRequest);
     customerRepository.save(newCustomer);
-
     return new CustomerResponse(newCustomer);
   }
 
   public List<CustomerResponse> getCustomers() {
     List<Customer> customers = customerRepository.findAll();
-
-    List<CustomerResponse> response = customers.stream().map(customer -> {
-        return new CustomerResponse(customer);
-    }).collect(Collectors.toList());
-
+    List<CustomerResponse> response = customers.stream().map(customer -> new CustomerResponse(customer)).collect(Collectors.toList());
     return response;
   }
+
+
 }
