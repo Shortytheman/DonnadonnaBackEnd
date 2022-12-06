@@ -11,25 +11,25 @@ import lombok.Setter;
 @NoArgsConstructor
 public class CustomerRequest {
 
-  int customerId;
-  String customerName;
-  int customerAge;
-  String customerEmail;
-  String customerAllergies;
-  Subscription subscription;
+    int customerId;
+    String customerName;
+    int customerAge;
+    String customerEmail;
+    String customerAllergies;
+    Subscription subscription;
 
-public static Customer getCustomerEntity(CustomerRequest crq){
- return new Customer(crq.getCustomerName(), crq.getCustomerAge(), crq.getCustomerEmail(),
-     crq.getCustomerAllergies());//crq.getSubscription());
-}
+    public static Customer getCustomerEntity(CustomerRequest crq) {
+        return new Customer(crq.getCustomerName(), crq.getCustomerAge(), crq.getCustomerEmail(),
+                crq.getCustomerAllergies());//crq.getSubscription());
+    }
 
-public CustomerRequest(Customer c){
-this.customerId = c.getCustomerId();
-this.customerName = c.getCustomerName();
-this.customerAge = c.getCustomerAge();
-this.customerEmail = c.getCustomerEmail();
-this.customerAllergies = c.getCustomerAllergies();
+    public CustomerRequest(Customer c) {
+        this.customerId = c.getCustomerId();
+        this.customerName = c.getCustomerName();
+        this.customerAge = c.getCustomerAge();
+        this.customerEmail = c.getCustomerEmail();
+        this.customerAllergies = c.getCustomerAllergies();
 //this.subscription = c.getSubscription();
-}
+    }
 
 }

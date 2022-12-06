@@ -8,14 +8,12 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
 public class Subscription {
-
 
   @Id
   int subscriptionId;
@@ -36,6 +34,7 @@ public class Subscription {
   int pantyLinersGstring;
 
   String deliveryInterval;
+  String firstDeliveryDate;
 
   // deliveryInterval can be either one of:
   //MONTHLY
