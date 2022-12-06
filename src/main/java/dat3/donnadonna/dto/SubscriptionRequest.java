@@ -11,10 +11,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SubscriptionRequest {
-        int subscriptionId;
-
-        int customerId;
-
         int tamponLight;
         int tamponRegular;
         int tamponMax;
@@ -37,7 +33,7 @@ public class SubscriptionRequest {
         //HALFYEARLY
 
     public static Subscription getSubscriptionEntity(SubscriptionRequest srq){
-        return new Subscription(srq.getSubscriptionId(), srq.getCustomerId(), srq.getTamponLight(),
+        return new Subscription(srq.getTamponLight(),
                 srq.getTamponRegular(), srq.getTamponMax(), srq.getSanitaryTowelLight(), srq.getSanitaryTowelRegular(),
                 srq.getSanitaryTowelMax(), srq.getSanitaryTowelNight(), srq.getPantyLinersThin(),
                 srq.getPantyLinersRegular(), srq.getPantyLinersGstring(), srq.getDeliveryInterval(),
@@ -45,7 +41,6 @@ public class SubscriptionRequest {
     }
 
         public SubscriptionRequest(Subscription s) {
-                this.customerId = s.getCustomerId();
                 this.tamponLight = s.getTamponLight();
                 this.tamponRegular = s.getTamponRegular();
                 this.tamponMax = s.getTamponMax();
