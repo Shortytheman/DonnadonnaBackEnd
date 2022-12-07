@@ -35,6 +35,8 @@ public class Subscription {
   int pantyLinersRegular;
   int pantyLinersGstring;
 
+  
+
   String deliveryInterval;
 
   // deliveryInterval can be either one of:
