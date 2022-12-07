@@ -53,6 +53,22 @@ public class Subscription {
     this.firstDeliveryDate = firstDeliveryDate;
   }
 
+  public Subscription(int customerId, int tamponLight, int tamponRegular, int tamponMax, int sanitaryTowelLight, int sanitaryTowelRegular, int sanitaryTowelMax, int sanitaryTowelNight, int pantyLinersThin, int pantyLinersRegular, int pantyLinersGstring, String deliveryInterval, String firstDeliveryDate) {
+    this.customerId = customerId;
+    this.tamponLight = tamponLight;
+    this.tamponRegular = tamponRegular;
+    this.tamponMax = tamponMax;
+    this.sanitaryTowelLight = sanitaryTowelLight;
+    this.sanitaryTowelRegular = sanitaryTowelRegular;
+    this.sanitaryTowelMax = sanitaryTowelMax;
+    this.sanitaryTowelNight = sanitaryTowelNight;
+    this.pantyLinersThin = pantyLinersThin;
+    this.pantyLinersRegular = pantyLinersRegular;
+    this.pantyLinersGstring = pantyLinersGstring;
+    this.deliveryInterval = deliveryInterval;
+    this.firstDeliveryDate = firstDeliveryDate;
+  }
+
   // deliveryInterval can be either one of:
   //MONTHLY
   //QUARERTLY

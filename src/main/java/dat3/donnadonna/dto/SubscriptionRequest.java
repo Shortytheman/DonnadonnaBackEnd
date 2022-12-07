@@ -11,6 +11,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SubscriptionRequest {
+
+
+
         int tamponLight;
         int tamponRegular;
         int tamponMax;

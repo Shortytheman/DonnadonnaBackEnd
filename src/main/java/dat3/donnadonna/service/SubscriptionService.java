@@ -32,10 +32,10 @@ public class SubscriptionService {
     }
 
     public SubscriptionResponse addSubscription(SubscriptionRequest subscriptionRequest) {
-        if (subscriptionRepository.existsById(subscriptionRequest.getSubscriptionId())) {
+        Subscription newSubscription = SubscriptionRequest.getSubscriptionEntity(subscriptionRequest);
+        if (subscriptionRepository.existsById(newSubscription.getSubscriptionId())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Subscription med dette id findes allerede.");
         }
-        Subscription newSubscription = SubscriptionRequest.getSubscriptionEntity(subscriptionRequest);
         subscriptionRepository.save(newSubscription);
 
         return new SubscriptionResponse(newSubscription);

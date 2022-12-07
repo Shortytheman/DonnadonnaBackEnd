@@ -25,7 +25,8 @@ public class Customer {
   String customerEmail;
   String customerAllergies;
 
-  int subscriptionId;
+  @OneToOne
+  Subscription subscription;
 
 
   public Customer(String customerName, int customerAge, String customerEmail, String customerAllergies){
@@ -35,4 +36,11 @@ public class Customer {
   this.customerAllergies = customerAllergies;
   }
 
+  public Customer(String customerName, int customerAge, String customerEmail, String customerAllergies, Subscription subscription) {
+    this.customerName = customerName;
+    this.customerAge = customerAge;
+    this.customerEmail = customerEmail;
+    this.customerAllergies = customerAllergies;
+    this.subscription = subscription;
+  }
 }

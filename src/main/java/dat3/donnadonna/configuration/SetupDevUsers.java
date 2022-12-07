@@ -53,12 +53,15 @@ public class SetupDevUsers implements ApplicationRunner {
         userWithRolesRepository.save(user2);
         userWithRolesRepository.save(user3);
 
-        Customer customer = new Customer("Smørgen",13,"smørgen@smør.dk","nødder");
-        customerRepository.save(customer);
+
 
         Subscription subscription = new Subscription(1, 0, 5, 5,
                 5, 5, 5, 5, 5, 5,
                 5, 5, "hver måned", "15. Dec 2022");
         subscriptionRepository.save(subscription);
+
+
+        Customer customer = new Customer("Smørgen",13,"smørgen@smør.dk","nødder",subscription);
+        customerRepository.save(customer);
     }
 }

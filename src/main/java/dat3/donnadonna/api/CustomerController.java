@@ -3,12 +3,9 @@ package dat3.donnadonna.api;
 
 import dat3.donnadonna.dto.CustomerRequest;
 import dat3.donnadonna.dto.CustomerResponse;
-import dat3.donnadonna.entity.Customer;
-import dat3.donnadonna.entity.Subscription;
+import dat3.donnadonna.dto.SubscriptionRequest;
 import dat3.donnadonna.service.CustomerService;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,9 +15,11 @@ public class CustomerController {
 
   CustomerService customerService;
 
+
   public CustomerController(CustomerService customerService) {
     this.customerService = customerService;
   }
+
 
   @GetMapping
   public List<CustomerResponse> getCustomers() {
@@ -28,8 +27,8 @@ public class CustomerController {
   }
 
   @PostMapping
-  public CustomerResponse addCustomer(@RequestBody CustomerRequest body) {
-    return customerService.addCustomer(body);
+  public CustomerResponse addCustomer(@RequestBody CustomerRequest customer, @RequestBody SubscriptionRequest subsctiption) {
+    return customerService.addCustomer(customer,subsctiption);
   }
 
 }
