@@ -24,7 +24,9 @@ public class Customer {
   int customerAge;
   String customerEmail;
   String customerAllergies;
+
   int subscriptionId;
+
 
   public Customer(String customerName, int customerAge, String customerEmail, String customerAllergies){
   this.customerName = customerName;
