@@ -18,11 +18,11 @@ public class CustomerRequest {
     int customerAge;
     String customerEmail;
     String customerAllergies;
-    //Subscription subscription;
+    Subscription subscription;
 
     public static Customer getCustomerEntity(CustomerRequest crq) {
         return new Customer(crq.getCustomerName(), crq.getCustomerAge(), crq.getCustomerEmail(),
-                crq.getCustomerAllergies()); //crq.getSubscription());
+                crq.getCustomerAllergies(), crq.getSubscription());
     }
 
     public CustomerRequest(Customer c) {
@@ -31,7 +31,7 @@ public class CustomerRequest {
         this.customerAge = c.getCustomerAge();
         this.customerEmail = c.getCustomerEmail();
         this.customerAllergies = c.getCustomerAllergies();
-        //this.subscription = c.getSubscriptionId();
+        this.subscription = c.getSubscription();
     }
 
 }

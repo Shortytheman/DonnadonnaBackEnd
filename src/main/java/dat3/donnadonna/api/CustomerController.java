@@ -27,8 +27,8 @@ public class CustomerController {
   }
 
   @PostMapping
-  public CustomerResponse addCustomer(@RequestBody CustomerRequest customer, @RequestBody SubscriptionRequest subsctiption) {
-    return customerService.addCustomer(customer,subsctiption);
+  public CustomerResponse addCustomer(@RequestBody CustomerRequest customer) {
+    return customerService.addCustomer(customer);
   }
 
 }

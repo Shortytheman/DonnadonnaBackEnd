@@ -25,15 +25,13 @@ public class CustomerService {
     this.subscriptionRepository = subscriptionRepository;
   }
 
-  public CustomerResponse addCustomer(CustomerRequest customerRequest, SubscriptionRequest subscriptionRequest) {
+  public CustomerResponse addCustomer(CustomerRequest customerRequest) {
 
     Customer newCustomer = CustomerRequest.getCustomerEntity(customerRequest);
-    Subscription newSubscription = SubscriptionRequest.getSubscriptionEntity(subscriptionRequest);
+    Subscription newSubscription = customerRequest.getSubscription();
 
     Customer tempCustomer = customerRepository.save(newCustomer);
-
     newSubscription.setCustomerId(tempCustomer.getCustomerId());
-
     subscriptionRepository.save(newSubscription);
 
     return new CustomerResponse(newCustomer);
