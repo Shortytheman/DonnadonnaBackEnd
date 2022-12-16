@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.ArrayList;
 
 @AllArgsConstructor
@@ -19,13 +16,14 @@ import java.util.ArrayList;
 public class Customer {
 
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   int customerId;
   String customerName;
   int customerAge;
   String customerEmail;
   String customerAllergies;
 
-  @OneToOne
+  @OneToOne(cascade = CascadeType.ALL)
   Subscription subscription;
 
 
